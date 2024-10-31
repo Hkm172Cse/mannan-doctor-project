@@ -1,0 +1,51 @@
+@media screen and (min-width: 100px) and (max-width: 990px) {
+    .custome-login-form {
+        width: 100% !important;
+    }
+    .free_pro_feature{
+        width:100% !important;
+    }
+    .pro_container{
+        margin-left:10px;
+    }
+    .column_sl{
+        display:none;
+    }
+    .header img{
+        width: 100% !important;
+    }
+     /* Style for the tooltip */
+     .custome_tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+  
+      .custome_tooltip .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+  
+      .custome_tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+      .address-lg-screen{
+        display: none;
+      }
+      .timer{
+        width: 95%;
+      }
+}

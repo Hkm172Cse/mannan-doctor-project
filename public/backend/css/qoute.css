@@ -1,0 +1,792 @@
+/* do-hyeon-regular - latin */
+
+@font-face {
+    font-family: 'Do Hyeon';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/do-hyeon-v11-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: local('Do Hyeon Regular'), local('DoHyeon-Regular'), url('fonts/do-hyeon-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/do-hyeon-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('fonts/do-hyeon-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('fonts/do-hyeon-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/do-hyeon-v11-latin-regular.svg#DoHyeon') format('svg');
+    /* Legacy iOS */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: 'Do Hyeon';*/
+    text-align: center !important;
+    color: #000;
+    font-weight: bold;
+}
+
+.productMoreDetailsInner h2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.productMoreDetailsInner h3 {
+    text-align: center;
+}
+
+.broker_address,
+.cartBtns {
+    text-align: right;
+}
+
+.header {
+    text-align: center;
+    margin: 0px;
+}
+
+.header img {
+    margin-bottom: 0px;
+    height: 90px;
+}
+
+.productMoreDetails {
+    background: #fff;
+    border-radius: .375rem .375rem .375rem .375rem;
+    padding: 1.125rem;
+    flex-direction: row;
+    transform: none;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    left: unset;
+    top: calc(50% - 0px);
+    margin-top: 30px;
+    width: 95%;
+    margin-bottom: 50px;
+    min-height: 50px;
+}
+
+form {
+    vertical-align: middle !important;
+}
+
+table th,
+table td {
+    line-height: 35px;
+    padding: 10px 4px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+form.quote_info:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.header h1 {
+    font-family: 'Do Hyeon';
+    padding-top: 30px;
+    padding-bottom: 6px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #4472C4;
+    line-height: 35px;
+}
+
+.header h1 span {
+    font-size: 35px;
+    background: url(../images/bmp-logo.png) center center no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    margin: -15px 0 0 0;
+}
+
+.productMoreDetails:after {
+    border-right: 10px solid #83010b;
+    display: none;
+}
+
+input:not([type]),
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+    bborder: 1px solid #bebebf;
+    background: #f7f7f7;
+    padding-left: 10px;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+body.page_update .productMoreDetails {
+    max-width: 1000px;
+    text-align: center;
+    min-height: auto;
+}
+
+table th {
+    font-weight: bold;
+    color: #83010b;
+    background: #e6e6e6;
+}
+
+.main_body table img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.main_body textarea {
+    height: 39px !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.admin_logout,
+.admin_product_list {
+    max-width: 1900px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.admin_logout a,
+.admin_product_list a {
+    background: #0070c0;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.admin_logout a:hover,
+.admin_product_list a:hover {
+    background: #b11e22;
+}
+
+.address:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+body.page_details h1.quote_title {
+    text-align: center;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+body.page_index {
+    background-color: #ffffff;
+}
+
+body.page_index h2 {
+    color: #667180;
+}
+
+body.page_index .login {
+    margin: 60px auto;
+}
+
+
+/*broker page for address*/
+
+
+/*client page for address*/
+
+.address {
+    margin: 0 auto 26px;
+    display: flex;
+    min-width: 100%;
+    border: 1px solid #e4e4e4;
+    justify-content: space-between;
+    
+}
+
+.broker_address {
+    text-align: center;
+    border-right: 1px solid #ccc;
+    width: 49%;
+}
+
+.broker_address h3 {
+    font-size: 25px;
+}
+
+.broker_address .broker_title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.customer_address {
+    text-align: center;
+    width: 49%;
+    overflow: auto;
+}
+
+.customer_address h2 {
+    color:#000000;
+    margin-bottom: 15px;
+}
+
+.customer_address h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.quote_head{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.back-to-order-list{
+    position:absolute;
+    top:5px;
+    left:5px;
+}
+
+.quote_head h2 {
+    font-size: 25px;
+}
+
+.quote_head h3 {
+    font-size: 18px;
+}
+
+.address:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.cartBtns button,
+.fullbox button {
+    cursor: pointer;
+    padding: 10px 40px;
+    border-radius: 5px;
+    min-width: 200px;
+    font-size: 16px;
+}
+
+.accept_btn {
+    color: #fff !important;
+    background-color: #4CAF50;
+}
+
+.accept_btn:hover {
+    color: #fff !important;
+    background-color: #358638;
+}
+
+.postBoxInput input {
+    text-align: center;
+    width: 96% !important;
+}
+
+.fullbox input {
+    text-align: center;
+    width: 98% !important;
+}
+
+.cartBtns2 {
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page_home .header h2 {
+    color: #667180;
+}
+
+.page_broker .header h2 {
+    font-size: 25px;
+}
+
+.page_details .header h2 {
+    color: #667180;
+}
+
+.page_home .page_order_list,
+.productMoreDetails {
+    max-width: 1900px;
+}
+
+.status_accept {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.status_sent {
+    font-weight: bold;
+    color: #03A9F4;
+}
+
+.status_pending {
+    /* font-weight: bold; */
+    color: #FFC107;
+}
+
+.status_rejected {
+    font-weight: bold;
+    color: #c00000;
+}
+
+.expiration {
+    /*border: 1px solid #bbbbbb;*/
+}
+
+.expiration input {
+    width: 65px !important;
+    display: inline-block;
+}
+
+.expiration .slash {
+    font-size: 30px;
+    line-height: 43px;
+}
+
+.brokerage_fee_massage {
+    color: #4CAF50;
+}
+
+.broker_street_address_edit_btn {
+    border-radius: 0 0 0 0;
+    margin-bottom: 10px;
+}
+.ajax-loader {
+    visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    z-index: 999 !important;
+    height: 0;
+    left: 15%;
+    top: 50%;
+}
+@media screen and (min-width: 300px) and (max-width: 676px) {
+    .broker_address {
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        overflow: auto;
+    }
+    /* .address {
+        border: 1px solid green;
+        display: grid;
+        grid-template-rows: 100% 100%;
+        height: auto;
+    }
+    .broker_address {
+        text-align: center;
+        border-bottom: 1px solid red;
+    }
+    .customer_address {
+        margin-left: 0;
+        text-align: center;
+        border:1px solid black;
+    } */
+}
+.voice_files{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+
+.playback {
+    /* height: 100px; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.playback audio{
+    width: 70% !important;
+    margin:auto;
+}
+.customer_voice{
+    width: 70% !important;
+    margin: auto;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.attachment_files{
+    /* width: 58%; */
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 20px; */
+    justify-content: center;
+    align-items: center;
+}
+.attachment_files .attachment{
+    width: 70px;
+    /* height: 88px; */
+    margin-right: 10px;
+}
+.attachment_files .attachment img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 1px solid #FFC107;
+    border-radius: 5px;
+}
+.broker-name{
+    color:#000 !important;
+}
+.custom_qoutaion{
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-direction: column;
+    background: #F0F1F5;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+input[type=file]{
+    background-color: #fff;
+    border: 1px solid #CED4DA;
+}
+.custom_qoutation_list{
+    display: flex;
+    justify-content: center;
+}
+.selected_custom_quotation_list{
+    list-style: none;
+}
+.custom_qoutation_list .attachment {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    background-color: #f0eded7a;
+    padding: 5px;
+    border-radius: 5px;
+}
+.custom_qoutation_list .attachment img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.header {
+    text-align: center;
+    margin: 0px;
+    border-bottom: 1px solid #E5E3E3;
+    background: #FAFAFA;
+}
+table {
+    font-size: 12px;
+}
+#dataTableQuote .btn {
+    font-size: 12px;
+}
+table.dataTable tbody td {
+    vertical-align: middle;
+}
+.dataTable thead tr th:last-child{
+    width: 32% !important;
+} 
+
+.qoutation-label {
+    font-weight: bold;
+    font-size: 18px;
+}
+.stripe-button-el span{
+    display:none !important;
+}
+.boxed_form{
+    max-width: 100%;
+    margin: 0 auto;
+    background: #f0f1f5;
+    border-radius: 12px;
+    padding: 0px;
+}
+.builder_subscribe_btn {
+    background: #9b0707;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    text-align: left !important;
+}
+.delete_btn {
+    background: #9b0707;
+    padding: 5px 10px;
+    border:none;
+}
+.custome_btn {
+    border: none;
+    border-radius: 2px;
+    color:#fff;
+}
+.delete_product_btn,.add_product_btn{
+    background-color: #ddd;
+}
+input[type=checkbox], input[type=radio] {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    margin-right: 10px;
+}
+.store_active{
+    background:#0081AE;
+}
+.subscription_overlay{
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background: rgb(255 255 255 / 80%);
+    height: 100%;
+    z-index: 9;
+    TOP: 0;
+    PADDING: 50PX;
+    
+}
+
+.subscription_overlay_quote{
+    margin-top:420px;
+    
+}
+.contact_support_container{
+    width: 40%;
+    margin:auto;
+    border:1px solid rgba(0,0,0,.1);
+    padding:20px;
+    border-radius: 5px;
+}
+.input_voice_section {
+    background: #f0f1f5;
+    padding: 0px 0px 0px;
+    border-radius: 10px;
+    margin: 30px auto;
+    height: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#recordButton {
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #fff;
+    background: #9b0707;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    padding: 8px;
+}
+.audio-record {
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.customer_address p{
+    padding:0px;
+    margin:20px 0px;
+    font-size:16px;
+}
+.broker_address p{
+    padding:0px;
+    margin:0px 0px;
+    font-size:16px;
+}
+.customer_address strong,
+.broker_address strong{
+    font-weight: 700 !important;
+}
+/* .addition_notes{
+    margin-top:20px !important;
+} */
+
+.customer_address hr,
+.broker_address hr{
+    width:50%; 
+    margin:10px auto;
+    
+}
+
+
+#stopButton.inactive {
+    display: none;
+    background: #ccc;
+}
+
+#stopButton {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #343a40;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 0px 22px;
+    cursor: pointer;
+}
+
+.broker .hidden {
+    display: none;
+}
+
+.store_notes_and_voice .store_notes {
+    width: 49%;
+    background: #f0f1f5;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 5px;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.store_notes_and_voice .store_voice {
+    width: 49%;
+    background: #f0f1f5;
+    border-radius: 10px;
+    margin: 15px auto;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    padding: 5px;
+}
+.broker .playback{
+    width: 100%;
+}
+.broker .remove_audio {
+    width: 22px;
+    height: 22px;
+    background-color: #e6e6e6;
+    color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    right: -1px;
+    cursor: pointer;
+    z-index: 99;
+}
+#broker-audio-player{
+    position: relative;
+}
+.customer_section p{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.custom_qoutaion h5{
+    padding:0;
+    margin:0;
+}
+.contact_admin{
+    color: #03A9F4;
+    background: #fff;
+    border: none;
+    text-decoration: underline;
+}
+.pupup-close{
+    background:none;
+    font-size: 18px;
+    padding: 0px;
+    margin:0px;
+    border: none;
+}
+.store-record-btn{
+    background:none !important;
+    color:#000 !important;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 720px) {
+    /* .desktop{
+        display: none;
+    } */
+    .header img {
+        height: 65px;
+    }
+    .address {
+        flex-direction: column;
+    }
+    .broker_address {
+        width: 100%;
+    }
+    .customer_address {
+        width: 100%;
+    }
+    .customer_voice {
+        width: 100%!important;
+    }
+    .cartBtns button{
+        padding: 10px 48px;
+        min-width: 125px;
+        font-size: 12px;
+    }
+    .qoutation-label {
+        font-size: 14px;
+    }
+    h2,h6,h3{
+        font-size: 14px!important;
+    }
+
+    .productMoreDetailsInner h3 {
+        font-size: 14px;
+    }
+}
+
+/* mobile version css */
+.top_bar{
+    width: 100%;
+    background-color: #fff;
+    padding: 5px 5px;
+    display: none;
+}
+.top_bar img{
+    width: 100%;
+    object-fit: contain;
+    height: 60px;
+    display: none;
+}

@@ -1,0 +1,1 @@
+<?php /**PATH D:\Me\Mannan_vai_project\resources\views/Frontend/Layout/footer.blade.php ENDPATH**/ ?>

@@ -1,0 +1,258 @@
+.custome-login-form {
+    width: 75%;
+}
+
+.login-form .card-body {
+    position: relative;
+}
+
+.login-form .login-back-button {
+    background: #ffffff;
+    border: 1px solid #9999;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0px 10px;
+    border-radius: 3px
+}
+
+.login-back-button a {
+    color: #9999;
+    font-size: 18px;
+}
+
+.subscription_overlay {
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background: rgb(255 255 255 / 80%);
+    height: 966px;
+    z-index: 9;
+    TOP: 0;
+    PADDING: 50PX;
+
+}
+
+.subscription_overlay_quote {
+    margin-top: 420px !important;
+}
+
+/*============ Pro and free button ========*/
+.free-pro-content {
+    background: #d3cece;
+    padding: 5px 5px;
+    border-radius: 15px;
+    /* margin-left: 10px !important;
+    margin-right: 10px !important;
+    margin-bottom: 25px !important; */
+    height: 47px;
+    width: 250px;
+}
+
+.free-pro-content .free {
+    width: 48%;
+    margin-right: 3px;
+    border: none;
+    padding: 0px 0px;
+    border-radius: 12px;
+    color: #555
+}
+
+.free i {
+    padding: 5px;
+    font-size: 15px;
+}
+
+.isLighter i {
+    color: #9b0707 !important;
+}
+
+.free-pro-content .pro {
+    width: 49%;
+    margin-left: 3px;
+    border: none;
+    border-radius: 12px;
+    padding: 0px 0px;
+    font-weight: 500;
+}
+
+.pro i {
+    color: gray;
+    font-size: 12px;
+    padding: 12px;
+}
+
+.isDark a {
+    color: gray;
+}
+
+.isLighter a {
+    color: #000;
+}
+
+.pro a:hover {
+    text-decoration: none;
+}
+
+.free-fro-box {
+    display: none;
+}
+
+.free-pro-content .isLighter {
+    background: #ffffff;
+}
+
+.free-pro-content .isDark {
+    background: #d3cece;
+}
+
+/*End Pre and Pro buttons Design*/
+
+/* Start Free_and_Pro Feature*/
+
+.free_pro_feature {
+    width: 70%;
+    margin: auto;
+}
+
+.free_pro_feature .card .card-header {
+    padding: 22px 22px !important;
+    text-align: left !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    font-size: 22px !important;
+}
+
+.free_pro_feature .card .card-body {
+    padding: 0px !important;
+    text-align: left !important;
+}
+
+.free_pro_feature .card .card-body ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.free_pro_feature .card .card-body ul li i {
+    margin-right: 10px;
+    font-size: 10px;
+}
+
+.free_pro_feature .card-footer p a {
+    font-size: 13px;
+}
+
+.pro-section button {
+    padding: 12px 0px;
+    font-size: 15px;
+
+}
+
+.pro-section .isSubscribe,
+.free-section .isSubscribe {
+    background: #9b0707;
+    color: #fff;
+}
+
+.free-section .isNotSubscribe,
+.pro-section .isNotSubscribe {
+    background: rgba(211, 209, 209, 0.8);
+    color:#999999 !important;
+}
+
+.pro-section h5 i {
+    color: #9b0707;
+}
+
+.pro-section p,
+.free-section p {
+    font-size: 18px;
+}
+
+.free-section button {
+    padding: 12px 0px;
+    font-size: 15px;
+}
+
+.free_container {
+    margin-left: 12px;
+}
+
+.free_container button {
+    width: 100%;
+    border: none;
+}
+
+.free_container ul li,
+.pro_container ul li {
+    color: #000;
+}
+
+.pro_container button {
+    width: 97%;
+    border: none;
+}
+
+.free_pro_feature .card-footer ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.free_pro_feature .card-footer ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/*End Free_and_Pro Feature*/
+.stripe-button-el {
+    display: none !important;
+}
+.custome-login-form label{
+    display:none;
+}
+.btn_marun{
+    background:#9b0707;
+    color:#fff;
+}
+.btn_marun:hover{
+    background:hsl(0, 91%, 32%, 0.8);
+    color:#fff;
+}
+.pagination .active .page-link{
+    background: #9b0707 !important;
+}
+.subscription_overlay a{
+    color:#9b0707 !important;
+}
+.sidebar-section-body{
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.table>:not(caption)>*>*{
+    padding:8px !important;
+}
+.custome_tooltip{
+    display: none;
+}
+
+#clock{
+    background: #ccc;
+    padding:8px;
+    color:#000;
+    font-size:18px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+.timer{
+    width: 50%;
+}
+@media (min-width: 992px) {
+    .custome-login-form{
+        width: 50%;
+    }
+    
+}

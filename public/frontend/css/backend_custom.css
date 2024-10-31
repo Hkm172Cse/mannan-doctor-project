@@ -1,0 +1,211 @@
+/* left sidebar custom css*/
+.sidebar .small_logo img {
+    width: 135px;
+}
+
+.nice-select.has-multiple span.current {
+    border: 1px solid #076ae1;
+    background: #0c6de1;
+    color: #fff;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: #000;
+}
+
+.media_image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+}
+
+.media_task {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid #000; */
+    padding: 10px;
+}
+
+.media_task_image {
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.task_check_box {
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.media_task {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.media_task label {
+    width: 143px;
+}
+
+.media_task_image p {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.media_task_image img {
+    width: 143px;
+    height: 130px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.media_task_image:hover {
+    border: 1px solid #076ae1;
+}
+
+input:checked .media_task_image {
+    border: 1px solid #076ae1;
+}
+
+.activity_box {
+    width: 100%;
+    height: 140px;
+    border: 1px dashed rgb(4, 0, 248);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+
+.header_iner {
+    z-index: 99;
+}
+
+.activity_box {
+    overflow: hidden;
+    width: 100%;
+}
+
+.activity_box img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+
+}
+
+.selected_activity {
+    position: relative;
+    width: 100%;
+    display: none;
+}
+
+.activity_title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.637);
+    color: #fff;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+.activity_repeatable_status {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.637);
+    color: #fff;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+
+.activity_remove {
+    background-color: #f70000;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.add_more_btn {
+    width: 50px;
+    height: 50px;
+    background-color: #077200;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    float: right;
+    cursor: pointer;
+}
+.pointer{
+    cursor: pointer;
+}
+/* .d-none{
+    display: none!important;
+}
+.d-block{
+    display: block!important;
+} */
+/* table.dataTable tr.odd { background-color: #eef2f7; } */
+table.dataTable tr.even {
+    background-color: #eef2f7;
+}
+
+.QA_section .QA_table tbody tr:hover,
+table.dataTable tr:hover {
+    background: #e7ddf9;
+}
+
+table.dataTable thead {
+    background: #d3e5fb;
+}
+
+.common_input select{
+    height: 47px;
+    line-height: 47px;
+    background-color: transparent;
+    border: 0;
+    padding: 0px 25px;
+    color: #81879f;
+    font-weight: 400;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid #e5ecff;
+}
+
+.form-label{
+    font-size:14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal.fade .modal-dialog {
+        transition: none;
+    }
+}
