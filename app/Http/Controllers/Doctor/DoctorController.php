@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Helpers\Helper;
+use Illuminate\Support\Facades\DB;
 
 class DoctorController extends Controller
 {
@@ -107,7 +108,14 @@ class DoctorController extends Controller
 
     public function SerialList(){
         $id = Auth::guard('doctor')->user()->id;
-        $data = Serial::where('doctor_id', $id)->get();
+      
+        $data = DB::table('serials')
+        ->leftJoin('chembers', 'serials.chember', '=', 'chembers.id')
+        ->select('chember', 'chembers.name', DB::raw('COUNT(*) as total_patients'))
+        ->groupBy('serials.chember', 'chembers.name')
+        ->where('serials.doctor_id', $id)
+        ->get();
+        //dd($data);
         return view('Backend.doctor.serials', ['data'=>$data]);
     }  
 
@@ -115,6 +123,10 @@ class DoctorController extends Controller
         $id = Auth::guard('doctor')->user()->id;
         $data = Chember::where('doctor_id',$id)->get();
         return view('Backend.doctor.chamber.list', ['data'=>$data]);
+    }
+
+    public function ChamberAdd(){
+        return view('Backend.doctor.chamber.add');
     }
 
     public function SerialEdit($id){
@@ -142,7 +154,31 @@ class DoctorController extends Controller
             return redirect()->back()->with('fail', 'Chembar update failed');
         }
     }
+
+    public function ChamberInsert(Request $request){
+        $doctor_id = Auth::guard('doctor')->user()->id;
+        $inputs = $request->only(
+            'name',
+            'address',
+            'start_time',
+            'end_time'
+        );
+        $inputs['active_days'] = json_encode($request->active_days);
+        $inputs['doctor_id'] = $doctor_id;
+        $result = Chember::insert($inputs);
+        if($result){
+            return redirect()->route('doctor.chamber.list')->with('success', 'Chembar update success');
+        }else{
+            return redirect()->route('doctor.chamber.list')->with('fail', 'Chembar update failed');
+        }
+    }
     public function Delete($id){
         dd($id);
+    }
+
+    public function ChamberPatients($id){
+        $doctor_id = Auth::guard('doctor')->user()->id;
+        $data = Serial::where('doctor_id',$doctor_id)->where('chember',$id)->get();
+        return view('Backend.doctor.chamber.chamber_patients', ['data'=>$data]);
     }
 }

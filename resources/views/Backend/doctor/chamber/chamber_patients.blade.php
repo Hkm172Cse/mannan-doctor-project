@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">চেম্বার তালিকা</h5>
+                        <h5 class="mb-0">Patients</h5>
                         <a href="{{route('doctor.add.chamber')}}"><button class="btn btn-sm btn-primary">Add</button></a>
                     </div>
                     @if (session('success'))
@@ -27,36 +27,17 @@
                         <tr>
                             <th>Sl</th>
                             <th>Name</th>
-                            <th>Address</th>
-                            <th>Start time</th>
-                            <th>End time</th>
-                            <th>Active days</th>
+                            <th>Phone</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $key=>$data)
-                       
                         <tr> 
                             <td>{{++$key}}</td>
                             <td>{{$data->name}}</td>
-                            <td>{{$data->address}}</td>
-                            <td>{{$data->start_time}}</td>
-                            <td>{{$data->end_time}}</td>
-                            <td>
-                                @if ($data->active_days!= null)
-                                    @php
-                                    $activeDays = json_decode($data->active_days);
-                                    @endphp
-                                    {{in_array("0", $activeDays)? "শনি,":""}}
-                                {{in_array("1", $activeDays)? "রবি,":""}}
-                                {{in_array("2", $activeDays)? "সোম,":""}}
-                                {{in_array("3", $activeDays)? "মঙ্গল,":""}}
-                                {{in_array("4", $activeDays)? "বুধ,":""}}
-                                {{in_array("5", $activeDays)? "বৃহস্পতি,":""}}
-                                {{in_array("6", $activeDays)? "শুক্র":""}}
-                                @endif
-                                
+                            <td>{{$data->phone}}</td>
+                            <td>   
                             </td>
                             <td class="text-center">
                                 <div class="d-flex align-items-center gap-1">

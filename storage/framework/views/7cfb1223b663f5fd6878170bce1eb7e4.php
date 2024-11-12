@@ -1,9 +1,9 @@
-@extends('Backend.layouts.doctor.master')
-@push('css')
-@endpush
+
+<?php $__env->startPush('css'); ?>
+<?php $__env->stopPush(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <!-- Content area -->
 <div class="content">
 
@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="sidebar-section-body text-center">
                         <div class="card-img-actions d-inline-block mb-3">
-                            <img class="img-fluid rounded-circle" src="{{asset(Auth::guard('doctor')->user()->image)}}"
+                            <img class="img-fluid rounded-circle" src="<?php echo e(asset(Auth::guard('doctor')->user()->image)); ?>"
                                 width="150" height="150" alt="">
                             <div class="card-img-actions-overlay card-img rounded-circle">
                                 <a href="#" class="btn btn-outline-white btn-icon rounded-pill">
@@ -29,8 +29,10 @@
                             </div>
                         </div>
 
-                        <h6 class="mb-0">Dr. {{Auth::guard('doctor')->user()->name}}
-                            {{Auth::guard('doctor')->user()->last_name}}
+                        <h6 class="mb-0">Dr. <?php echo e(Auth::guard('doctor')->user()->name); ?>
+
+                            <?php echo e(Auth::guard('doctor')->user()->last_name); ?>
+
                         </h6>
                         <span class="text-muted">Head of ....</span>
                     </div>
@@ -47,38 +49,7 @@
                     </ul>
                 </div>
 
-                {{--<div class="card">
-                    <div class="card-header">Chember information</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                            
-                                @php
-                                    $chembersArr = Auth::guard('doctor')->user()->chembar;
-                                    $chambers = json_decode($chembersArr);
-                                @endphp
-                               @if(is_array($chambers))
-                                    @foreach ($chambers as $cham)
-                                        <ul id="cham_list">
-                                            <li><strong>{{$cham->name}}</strong> <p>{{$cham->address}}, {{$cham->time}}</p></li>
-                                        </ul>
-                                    @endforeach
-                                @endif
-                                
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div>
-                                    <a class="cursor-pointer text-decoration-underline" id="chemberAddBtn"><i class="ph-plus border rounded-circle border-primary"></i>  Add chamber</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="ChemberContainer">
-
-                        </div>
-                    </div>
-                </div>--}}
+                
                 <!-- /Left content -->
 
             </div>
@@ -98,14 +69,14 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('doctor.profile.update')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="edit_id" value="{{Auth::guard('doctor')->user()->id}}">
+                        <form action="<?php echo e(route('doctor.profile.update')); ?>" method="POST" enctype="multipart/form-data">
+                            <?php echo csrf_field(); ?>
+                            <input type="hidden" name="edit_id" value="<?php echo e(Auth::guard('doctor')->user()->id); ?>">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label class="form-label"> Name</label>
-                                        <input type="text" name="name" value="{{Auth::guard('doctor')->user()->name}}"
+                                        <input type="text" name="name" value="<?php echo e(Auth::guard('doctor')->user()->name); ?>"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -113,13 +84,13 @@
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
                                         <input type="email" name="email"
-                                            value="{{Auth::guard('doctor')->user()->email}}" class="form-control">
+                                            value="<?php echo e(Auth::guard('doctor')->user()->email); ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label class="form-label">Phone</label>
-                                        <input type="text" name="phone" value="{{Auth::guard('doctor')->user()->phone}}"
+                                        <input type="text" name="phone" value="<?php echo e(Auth::guard('doctor')->user()->phone); ?>"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -128,9 +99,9 @@
                                     <div class="mb-3">
                                         <label class="form-label">Specialist</label>
                                         <select class="form-control" name="specialist">
-                                            @foreach ($specialist as $s_list)
-                                            <option value="{{$s_list->id}}">{{$s_list->bangla_title}}</option>
-                                            @endforeach
+                                            <?php $__currentLoopData = $specialist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s_list): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($s_list->id); ?>"><?php echo e($s_list->bangla_title); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -139,14 +110,14 @@
                                     <div class="mb-3">
                                         <label class="form-label">Degree</label>
                                         <input type="text" name="degree"
-                                            value="{{Auth::guard('doctor')->user()->degree}}" class="form-control">
+                                            value="<?php echo e(Auth::guard('doctor')->user()->degree); ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label class="form-label">Present work place</label>
                                         <input type="text" name="present_w_p"
-                                            value="{{Auth::guard('doctor')->user()->present_w_p}}" class="form-control">
+                                            value="<?php echo e(Auth::guard('doctor')->user()->present_w_p); ?>" class="form-control">
                                     </div>
                                 </div>
 
@@ -154,7 +125,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Previous work place</label>
                                         <input type="text" name="previous_w_p"
-                                            value="{{Auth::guard('doctor')->user()->previous_w_p}}"
+                                            value="<?php echo e(Auth::guard('doctor')->user()->previous_w_p); ?>"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -163,14 +134,14 @@
                                     <div class="mb-3">
                                         <label class="form-label">Visit fee</label>
                                         <input type="text" name="visit_fee"
-                                            value="{{Auth::guard('doctor')->user()->visit_fee}}" class="form-control">
+                                            value="<?php echo e(Auth::guard('doctor')->user()->visit_fee); ?>" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label class="form-label">BMDC</label>
-                                        <input type="text" name="bmdc" value="{{Auth::guard('doctor')->user()->bmdc}}"
+                                        <input type="text" name="bmdc" value="<?php echo e(Auth::guard('doctor')->user()->bmdc); ?>"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -179,7 +150,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Details</label>
                                         <textarea type="text" name="details" class="form-control">
-                                        {{Auth::guard('doctor')->user()->details}}
+                                        <?php echo e(Auth::guard('doctor')->user()->details); ?>
+
                                         </textarea>
                                     </div>
                                 </div>
@@ -188,7 +160,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Special traing </label>
                                         <input type="text" name="special_trainig"
-                                            value="{{Auth::guard('doctor')->user()->special_trainig}}"
+                                            value="<?php echo e(Auth::guard('doctor')->user()->special_trainig); ?>"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -219,10 +191,11 @@
 </div>
 <!-- /content area -->
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@push('js')
-    <script src="{{ asset('backend/assets/js/chember.js') }}"></script>
+<?php $__env->startPush('js'); ?>
+    <script src="<?php echo e(asset('backend/assets/js/chember.js')); ?>"></script>
 
-@endpush
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('Backend.layouts.doctor.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Me\Doctor_Admin\resources\views/Backend/doctor/profile.blade.php ENDPATH**/ ?>

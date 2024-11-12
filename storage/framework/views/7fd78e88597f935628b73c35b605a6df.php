@@ -23,30 +23,30 @@
             <!-- Main -->
 
             <li class="nav-item">
-                <a href="{{route('doctor.dashboard')}}" class="nav-link">
+                <a href="<?php echo e(route('doctor.dashboard')); ?>" class="nav-link">
                     <i class="ph-house"></i>
                     <span>
                         ডেসবোর্ড
-                        {{-- <span class="d-block fw-normal opacity-50">No pending orders</span> --}}
+                        
                     </span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="{{route('doctor.serial.list')}}" class="nav-link">
+                <a href="<?php echo e(route('doctor.serial.list')); ?>" class="nav-link">
                     <i class="ph-users"></i>
                     <span>সিরিয়াল লিস্ট</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('doctor.chamber.list')}}" class="nav-link">
+                <a href="<?php echo e(route('doctor.chamber.list')); ?>" class="nav-link">
                     <i class="ph-users"></i>
                     <span>চেম্বার</span>
                 </a>
             </li>
            
             <li class="nav-item">
-                <a href="{{route('doc.logout')}}" class="nav-link">
+                <a href="<?php echo e(route('doc.logout')); ?>" class="nav-link">
                     <i class="ph-sign-out"></i>
                     <span>
                         লগআউট
@@ -58,3 +58,4 @@
     <!-- /main navigation -->
 
 </div>
+<?php /**PATH D:\Me\Doctor_Admin\resources\views/Backend/layouts/doctor/left-sidebar.blade.php ENDPATH**/ ?>

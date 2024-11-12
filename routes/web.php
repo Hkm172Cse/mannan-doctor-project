@@ -68,8 +68,11 @@ Route::group(['prefix' => 'doctor', 'as' => 'doctor.', 'middleware' => ['web', '
     Route::get('serial-edit/{id}', [DoctorController::class, 'SerialEdit'])->name('serial.edit');
     Route::get('/doctor/serial/delete/{id}', [DoctorController::class, 'Delete']);
     Route::get('chamber-list', [DoctorController::class, "ChamberList"])->name('chamber.list');
+    Route::get('chamber-add', [DoctorController::class, 'ChamberAdd'])->name('add.chamber');
     Route::get('/chamber-edit/{id}', [DoctorController::class, 'ChamberEdit'])->name('chamber.edit');
     Route::post('chember-update', [DoctorController::class, 'ChemberUpdate'])->name('chembar.update');
+    Route::post('chamber-insert', [DoctorController::class, "ChamberInsert"])->name('chembar.insert');
+    Route::get('chamber-patients/{id}', [DoctorController::class, "ChamberPatients"])->name('chembers.patients');
 
 });
 

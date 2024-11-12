@@ -217,8 +217,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\Me\\Mannan_vai_project\\storage\\framework/cache/data',
-        'lock_path' => 'D:\\Me\\Mannan_vai_project\\storage\\framework/cache/data',
+        'path' => 'D:\\Me\\Doctor_Admin\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\Me\\Doctor_Admin\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -391,13 +391,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Me\\Mannan_vai_project\\storage\\app',
+        'root' => 'D:\\Me\\Doctor_Admin\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Me\\Mannan_vai_project\\storage\\app/public',
+        'root' => 'D:\\Me\\Doctor_Admin\\storage\\app/public',
         'url' => 'http://127.0.0.1:8000/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -417,7 +417,7 @@
     ),
     'links' => 
     array (
-      'D:\\Me\\Mannan_vai_project\\public\\storage' => 'D:\\Me\\Mannan_vai_project\\storage\\app/public',
+      'D:\\Me\\Doctor_Admin\\public\\storage' => 'D:\\Me\\Doctor_Admin\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -456,14 +456,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\Me\\Mannan_vai_project\\storage\\logs/laravel.log',
+        'path' => 'D:\\Me\\Doctor_Admin\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\Me\\Mannan_vai_project\\storage\\logs/laravel.log',
+        'path' => 'D:\\Me\\Doctor_Admin\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -528,7 +528,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\Me\\Mannan_vai_project\\storage\\logs/laravel.log',
+        'path' => 'D:\\Me\\Doctor_Admin\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -595,7 +595,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\Me\\Mannan_vai_project\\resources\\views/vendor/mail',
+        0 => 'D:\\Me\\Doctor_Admin\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -713,7 +713,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\Me\\Mannan_vai_project\\storage\\framework/sessions',
+    'files' => 'D:\\Me\\Doctor_Admin\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -733,9 +733,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\Me\\Mannan_vai_project\\resources\\views',
+      0 => 'D:\\Me\\Doctor_Admin\\resources\\views',
     ),
-    'compiled' => 'D:\\Me\\Mannan_vai_project\\storage\\framework\\views',
+    'compiled' => 'D:\\Me\\Doctor_Admin\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -821,7 +821,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\Me\\Mannan_vai_project',
+    'remote_sites_path' => 'D:\\Me\\Doctor_Admin',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
@@ -885,7 +885,7 @@
       'local' => 
       array (
         'type' => 'city',
-        'path' => 'D:\\Me\\Mannan_vai_project\\database\\maxmind/GeoLite2-City.mmdb',
+        'path' => 'D:\\Me\\Doctor_Admin\\database\\maxmind/GeoLite2-City.mmdb',
         'url' => 'https://download.maxmind.com/app/geoip_download_by_token?edition_id=GeoLite2-City&license_key=&suffix=tar.gz',
       ),
     ),

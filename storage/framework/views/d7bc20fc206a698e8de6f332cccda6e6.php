@@ -1,16 +1,14 @@
-@extends('Backend.layouts.doctor.master')
-@push('css')
-@endpush
+
+<?php $__env->startPush('css'); ?>
+<?php $__env->stopPush(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row">
-    @foreach ($data as $data)
-    
-   
+
     <div class="col-xl-4">
     <!-- Start Quotation Section -->
-    <a href="{{route('doctor.chembers.patients', $data->chember)}}">
+    <a href="#">
     <div class="card">
 
         <div class="card-body pb-0">
@@ -18,10 +16,10 @@
                 <div class="col-sm-12">
                     <div class="d-flex align-items-center justify-content-between mb-2">
                         <span class="bg-success bg-opacity-10 text-success lh-1 rounded-pill p-2 me-3">
-                            {{$data->total_patients}}
+                            <i class="ph-clipboard-text"></i>
                         </span>
                         <div>
-                            <div class="fw-semibold">{{$data->name}}</div>
+                            <div class="fw-semibold">Profile</div>
                         </div>
                     </div>
                     <div class="w-75 mx-auto mb-3" id="new-visitors"></div>
@@ -34,11 +32,12 @@
     </a>
     <!-- /End Quotation Section -->
     </div>
-    @endforeach
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@push('js')
-@endpush
+<?php $__env->startPush('js'); ?>
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('Backend.layouts.doctor.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Me\Doctor_Admin\resources\views/Backend/doctor/dashboard.blade.php ENDPATH**/ ?>

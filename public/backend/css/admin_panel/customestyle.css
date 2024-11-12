@@ -239,17 +239,26 @@
     display: none;
 }
 
-#clock{
-    background: #ccc;
-    padding:8px;
-    color:#000;
-    font-size:18px;
-    font-weight: bold;
-    border-radius: 8px;
+/* DOCTOR PROJECT STYLE */
+.customEditBtn{
+    color:#fff;
+    border-radius: 2px;
+    border:none;
+    background: blue;
+    padding:3px;
 }
-.timer{
-    width: 50%;
+.customEditBtn i{
+    color:#fff;
 }
+.customDeleteBtn{
+    color:#fff;
+    border-radius: 2px;
+    border:none;
+    background: red;
+    padding:3px
+}
+
+
 @media (min-width: 992px) {
     .custome-login-form{
         width: 50%;

@@ -32,18 +32,32 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        @php
-        $chembers = json_decode($info->chembar)
-        @endphp
-        @foreach ($chembers as $chember)
+        
+        @foreach ($chamberData as $chember)
         <div class="col-6 col-sm-4 col-lg-2">
             <div class="featured-boxes featured-boxes-modern-style-2 featured-boxes-modern-style-2-hover-only featured-boxes-modern-style-primary m-0 mb-4 pb-3">
                 <div class="featured-box featured-box-no-borders featured-box-box-shadow">
-                    <a href="{{route('get.serial', ['chember'=>json_encode($chember), 'id'=>$info->id])}}" class="text-decoration-none">
+                    <a href="{{route('get.serial', ['chember'=>$chember->id, 'id'=>$info->id])}}" class="text-decoration-none">
                         <span class="box-content px-1 py-4 text-center d-block">
                             <span class="font-weight-bold text-uppercase text-1 negative-ls-1 d-block text-dark pt-2">{{$chember->name}}</span>
-                            <span class="font-weight-bold text-uppercase text-1 negative-ls-1 d-block text-dark pt-2">{{$chember->time}}</span>
                             <span class="font-weight-bold text-uppercase text-1 negative-ls-1 d-block text-dark pt-2">{{$chember->address}}</span>
+                            <span class="font-weight-bold text-uppercase text-1 negative-ls-1 d-block text-dark pt-2">{{$chember->start_time}}-{{$chember->end_time}}</span>
+
+                            <span class="font-weight-bold text-uppercase text-1 negative-ls-1 d-block text-dark pt-2">
+                            @if ($chember->active_days!= null)
+                                    @php
+                                    $activeDays = json_decode($chember->active_days);
+                                    @endphp
+                                    {{in_array("0", $activeDays)? "শনি,":""}}
+                                {{in_array("1", $activeDays)? "রবি,":""}}
+                                {{in_array("2", $activeDays)? "সোম,":""}}
+                                {{in_array("3", $activeDays)? "মঙ্গল,":""}}
+                                {{in_array("4", $activeDays)? "বুধ,":""}}
+                                {{in_array("5", $activeDays)? "বৃহস্পতি,":""}}
+                                {{in_array("6", $activeDays)? "শুক্র":""}}
+                                @endif
+                            </span>
+
                         </span>
                     </a>
                 </div>

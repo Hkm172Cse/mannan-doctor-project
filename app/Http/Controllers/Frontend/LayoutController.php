@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chember;
 use App\Models\Doctor;
 use App\Models\Serial;
 use App\Models\Specialist;
@@ -22,22 +23,24 @@ class LayoutController extends Controller
         ->leftJoin('specialists', 'doctors.specialist', '=', 'specialists.id')
         ->select('doctors.*', 'specialists.bangla_title')
         ->where('doctors.id',$id)->get();
-        return view('Frontend.Pages.doctor.details', ['data'=>$data]);
+        $chamberData = Chember::where('doctor_id',$id)->get();
+        return view('Frontend.Pages.doctor.details', ['data'=>$data, 'chamberData'=>$chamberData]);
     }
 
     public function BookSerial(Request $request){
-        $chember = json_decode($request->chember);
+        $chember = $request->chember;
         $id = $request->id;
         return view('Frontend.Pages.doctor.booking', ['chember'=>$chember, 'id'=>$id]);
     }
 
     public function SerialBooking(Request $request){
+        //dd($request->all());
         $result = Serial::insert([
             'nid'=>$request->nid,
             'name'=>$request->name, 
             'phone'=>$request->phone, 
             'doctor_id'=>$request->doctor_id, 
-            'chember'=>$request->chember]);
+            'chember'=>json_decode($request->chember)]);
         if($result){
             return redirect()->back()->with('success', 'আপনার  সিরিয়ালটি নেওয়া হয়েছে। অতি শিঘ্রয় আপনার সাথে যোগাযোগ করা হবে। দয়া করে অপেক্ষা করুন');
         }else{
