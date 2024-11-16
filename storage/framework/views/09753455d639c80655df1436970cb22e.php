@@ -68,11 +68,13 @@
 		<!-- Skin CSS -->
 		<link id="skinCSS" rel="stylesheet" href="<?php echo e(asset('frontend/css/skins/default.css')); ?>">
 
+		<!-- Head Libs -->
+		<script src="<?php echo e(asset('frontend/vendor/modernizr/modernizr.min.js')); ?>"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="<?php echo e(asset('frontend/css/custom.css')); ?>">
 
-		<!-- Head Libs -->
-		<script src="<?php echo e(asset('frontend/vendor/modernizr/modernizr.min.js')); ?>"></script>
 
 	</head>
 
@@ -109,6 +111,7 @@
 		<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 		<!-- Theme Custom -->
 		<script src="<?php echo e(asset('frontend/js/custom.js')); ?>"></script>
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 		<?php echo $__env->yieldContent('js_connect'); ?>
 	</body>
 </html><?php /**PATH D:\Me\Doctor_Admin\resources\views/Frontend/Layout/app.blade.php ENDPATH**/ ?>

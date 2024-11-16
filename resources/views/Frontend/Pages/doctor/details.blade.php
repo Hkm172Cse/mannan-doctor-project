@@ -48,13 +48,13 @@
                                     @php
                                     $activeDays = json_decode($chember->active_days);
                                     @endphp
-                                    {{in_array("0", $activeDays)? "শনি,":""}}
-                                {{in_array("1", $activeDays)? "রবি,":""}}
-                                {{in_array("2", $activeDays)? "সোম,":""}}
-                                {{in_array("3", $activeDays)? "মঙ্গল,":""}}
-                                {{in_array("4", $activeDays)? "বুধ,":""}}
-                                {{in_array("5", $activeDays)? "বৃহস্পতি,":""}}
-                                {{in_array("6", $activeDays)? "শুক্র":""}}
+                                    {{in_array("6", $activeDays)? "শনি,":""}}
+                                {{in_array("0", $activeDays)? "রবি,":""}}
+                                {{in_array("1", $activeDays)? "সোম,":""}}
+                                {{in_array("2", $activeDays)? "মঙ্গল,":""}}
+                                {{in_array("3", $activeDays)? "বুধ,":""}}
+                                {{in_array("4", $activeDays)? "বৃহস্পতি,":""}}
+                                {{in_array("5", $activeDays)? "শুক্র":""}}
                                 @endif
                             </span>
 

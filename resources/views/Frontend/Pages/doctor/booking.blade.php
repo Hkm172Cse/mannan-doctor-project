@@ -1,7 +1,7 @@
 @extends('Frontend.Layout.app')
 @section('content')
 
-<div style="width: 60%; margin:auto">
+<div style="width: 80%; margin:auto">
 									<div class="card-body">
 										<div class="row">
 											<div class="col">
@@ -38,6 +38,36 @@
 																<input type="text" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control text-3 h-auto py-2" name="nid" required>
 															</div>
 														</div>
+
+														<div class="form-group col-lg-6">
+															<label class="form-label mb-1 text-2" for="dateDropdown">তারিখ নির্বাচন করুন:
+																<span>
+																@php
+																$active_Days = json_decode($activeDays);
+																@endphp
+																{{in_array("6", $active_Days)? "শনি,":""}}
+																{{in_array("0", $active_Days)? "রবি,":""}}
+																{{in_array("1", $active_Days)? "সোম,":""}}
+																{{in_array("2", $active_Days)? "মঙ্গল,":""}}
+																{{in_array("3", $active_Days)? "বুধ,":""}}
+																{{in_array("4", $active_Days)? "বৃহস্পতি,":""}}
+																{{in_array("5", $active_Days)? "শুক্র":""}}
+																</span>
+																(<span class="day-limit-text">সর্বোচ্চ ২ দিন আগ পর্যন্ত তারিখ নির্বাচন করতে পারবেন </span>)
+															</label>
+															<select id="dateDropdown" class="form-control py-2" name="date">
+																<option value="">-- Select a Date --</option>
+															</select>
+														</div>
+
+														<div class="form-group col-lg-6">
+															<label class="form-label mb-1 text-2">জন্ম তারিখ:</label>
+															<div class="position-relative">
+																<i class="icons icon-envelope text-color-primary text-3 position-absolute left-15 top-50pct transform3dy-n50"></i>
+																<input type="date" class="form-control text-3 h-auto py-2" name="birth_date" required>
+															</div>
+														</div>
+
 													</div>
 													
 													<div class="row">
@@ -87,5 +117,53 @@
 @endsection
 
 @section('js_connect')
-    
+<script>
+	const allowedDays = @json($activeDays);
+
+    document.addEventListener("DOMContentLoaded", function () {
+	const maxDaysAhead = 2; 
+	const dropdown = document.getElementById("dateDropdown");
+	const today = new Date();
+
+	for (let i = 0; i <= maxDaysAhead; i++) {
+		const futureDate = new Date();
+		futureDate.setDate(today.getDate() + i);
+
+		const dayOfWeek = futureDate.getDay();
+
+		// Check if the day is allowed
+		if (allowedDays.includes(dayOfWeek)) {
+		// const formattedDate = futureDate.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+		const formattedDate = `${String(futureDate.getDate()).padStart(2, '0')}-${String(futureDate.getMonth() + 1).padStart(2, '0')}-${futureDate.getFullYear()}`;
+		const dayName = futureDate.toLocaleDateString("en-US", { weekday: "long" }); // Get day name
+
+		// Add the date as an option in the dropdown
+		const option = document.createElement("option");
+		option.value = formattedDate;
+		option.textContent = `${formattedDate} (${dayName})`;
+		dropdown.appendChild(option);
+		}
+	}
+	});
+
+
+</script>
+   <!-- <script>
+			const calendar = flatpickr("#calendar", {
+			dateFormat: "Y-m-d", 
+			locale: {
+				firstDayOfWeek: 1
+			}
+			});
+
+			function dateFunction(allowedDays) {
+			calendar.set("disable", [
+				function (date) {
+				const day = date.getDay();
+				return !allowedDays.includes(day);
+				}
+			]);
+			calendar.open();
+			}
+   </script> -->
 @endsection

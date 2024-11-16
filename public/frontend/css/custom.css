@@ -24,3 +24,22 @@
     display: flex;
     justify-content: space-between;
 }
+.day-limit-text{
+    color:red;
+    font-size: 8px;
+    font-weight: 400;
+}
+/* #calendar{
+    display: block;
+}
+
+@media screen and (min-width: 350px) and (max-width: 1200px) {
+   
+    .flatpickr-mobile{
+        display: none;
+    }
+    #calendar{
+        display: block;
+    }
+  } 
+  */

@@ -29,22 +29,36 @@ class LayoutController extends Controller
 
     public function BookSerial(Request $request){
         $chember = $request->chember;
+        $doctorsActiveDays = Chember::where('id',$chember)->get();
+        $doctorsActiveDays = $doctorsActiveDays[0]->active_days;
+        //dd($doctorsActiveDays);
         $id = $request->id;
-        return view('Frontend.Pages.doctor.booking', ['chember'=>$chember, 'id'=>$id]);
+        return view('Frontend.Pages.doctor.booking', ['chember'=>$chember, 'id'=>$id, 'activeDays'=>$doctorsActiveDays]);
     }
 
     public function SerialBooking(Request $request){
         //dd($request->all());
+        $chamber = json_decode($request->chember);
+        $date = $request->date;
+        $limit_cross = Serial::where('date',$date)->where('chember',$chamber)->count();
+        if($limit_cross >= 3){
+            return redirect()->back()->with('fail', 'আপনার সিরিয়ালটি নেওয়া হচ্ছে না  ইতিমধ্যে আমরা প্রতিদিনের জন্যে নির্ধারিত রোগীর সিরিয়াল নেওয়া শেষ। দয়া করে অন্য তারিখ বা চেম্বার নির্বাচন করুন।');
+        }else{
+
         $result = Serial::insert([
             'nid'=>$request->nid,
             'name'=>$request->name, 
             'phone'=>$request->phone, 
             'doctor_id'=>$request->doctor_id, 
-            'chember'=>json_decode($request->chember)]);
+            'chember'=>$chamber,
+            'date'=>$date,
+            'birth_date'=>$request->birth_date
+        ]);
         if($result){
             return redirect()->back()->with('success', 'আপনার  সিরিয়ালটি নেওয়া হয়েছে। অতি শিঘ্রয় আপনার সাথে যোগাযোগ করা হবে। দয়া করে অপেক্ষা করুন');
         }else{
             return redirect()->back()->with('fail', 'আপনার  সিরিয়ালটি নেওয়া হয়নি। সকল তথ্য দিয়ে আবার চেষ্টা করুন');  
         }
+    }
     }
 }

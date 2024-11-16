@@ -57,34 +57,34 @@
 											<p class="fw-semibold d-flex">Active days</p>
                                             <div class="d-flex gap-3">
 												<div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="0" {{in_array("0", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="6" {{in_array("6", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_c">Sat</label>
 												</div>
 
 												<div class="form-check form-switch mb-3">
-													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="1" {{in_array("1", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="0" {{in_array("0", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_u">Sun</label>
 												</div>
                                                 <div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="2" {{in_array("2", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="1" {{in_array("1", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_c">Mon</label>
 												</div>
 
 												<div class="form-check form-switch mb-3">
-													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="3" {{in_array("3", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="2" {{in_array("2", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_u">Tue</label>
 												</div>
                                                 <div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="4" {{in_array("4", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="3" {{in_array("3", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_c">Wed</label>
 												</div>
 
 												<div class="form-check form-switch mb-3">
-													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="5" {{in_array("5", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="4" {{in_array("4", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_u">Thu</label>
 												</div>
                                                 <div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="6" {{in_array("6", $activeDays)? "checked":""}}>
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="5" {{in_array("5", $activeDays)? "checked":""}}>
 													<label class="form-check-label" for="sc_ls_c">Fri</label>
 												</div>
                                             </div>

@@ -48,34 +48,34 @@
 											<p class="fw-semibold d-flex">Active days</p>
                                             <div class="d-flex gap-3">
 												<div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="0">
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="6">
 													<label class="form-check-label" for="sc_ls_c">Sat</label>
 												</div>
 
 												<div class="form-check form-switch mb-3">
-													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="1">
+													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="0">
 													<label class="form-check-label" for="sc_ls_u">Sun</label>
 												</div>
                                                 <div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="2">
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="1">
 													<label class="form-check-label" for="sc_ls_c">Mon</label>
 												</div>
 
 												<div class="form-check form-switch mb-3">
-													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="3">
+													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="2">
 													<label class="form-check-label" for="sc_ls_u">Tue</label>
 												</div>
                                                 <div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="4">
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="3">
 													<label class="form-check-label" for="sc_ls_c">Wed</label>
 												</div>
 
 												<div class="form-check form-switch mb-3">
-													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="5">
+													<input type="checkbox" class="form-check-input" id="sc_ls_u" name="active_days[]" value="4">
 													<label class="form-check-label" for="sc_ls_u">Thu</label>
 												</div>
                                                 <div class="form-check form-switch mb-2">
-													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="6">
+													<input type="checkbox" class="form-check-input" id="sc_ls_c" name="active_days[]" value="5">
 													<label class="form-check-label" for="sc_ls_c">Fri</label>
 												</div>
                                             </div>

@@ -48,19 +48,19 @@
                                     <?php
                                     $activeDays = json_decode($data->active_days);
                                     ?>
-                                    <?php echo e(in_array("0", $activeDays)? "শনি,":""); ?>
+                                    <?php echo e(in_array("6", $activeDays)? "শনি,":""); ?>
 
-                                <?php echo e(in_array("1", $activeDays)? "রবি,":""); ?>
+                                <?php echo e(in_array("0", $activeDays)? "রবি,":""); ?>
 
-                                <?php echo e(in_array("2", $activeDays)? "সোম,":""); ?>
+                                <?php echo e(in_array("1", $activeDays)? "সোম,":""); ?>
 
-                                <?php echo e(in_array("3", $activeDays)? "মঙ্গল,":""); ?>
+                                <?php echo e(in_array("2", $activeDays)? "মঙ্গল,":""); ?>
 
-                                <?php echo e(in_array("4", $activeDays)? "বুধ,":""); ?>
+                                <?php echo e(in_array("3", $activeDays)? "বুধ,":""); ?>
 
-                                <?php echo e(in_array("5", $activeDays)? "বৃহস্পতি,":""); ?>
+                                <?php echo e(in_array("4", $activeDays)? "বৃহস্পতি,":""); ?>
 
-                                <?php echo e(in_array("6", $activeDays)? "শুক্র":""); ?>
+                                <?php echo e(in_array("5", $activeDays)? "শুক্র":""); ?>
 
                                 <?php endif; ?>
                                 
