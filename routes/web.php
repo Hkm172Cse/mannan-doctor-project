@@ -73,6 +73,10 @@ Route::group(['prefix' => 'doctor', 'as' => 'doctor.', 'middleware' => ['web', '
     Route::post('chember-update', [DoctorController::class, 'ChemberUpdate'])->name('chembar.update');
     Route::post('chamber-insert', [DoctorController::class, "ChamberInsert"])->name('chembar.insert');
     Route::get('chamber-patients/{id}', [DoctorController::class, "ChamberPatients"])->name('chembers.patients');
+    Route::get('chamber-date-wise/{doctor}/{date}/{chamber}', [DoctorController::class, 'ChamberDateWise'])->name('chembers.day.patients');
+    Route::get('doctor-start/{doctor}/{date}/{chamber}', [DoctorController::class, 'StartToSeePatients'])->name('start');
+    Route::get('patient-status-completed/{doctor}/{date}/{chamber}/{patient_id}', [DoctorController::class, 'statusCompleted'])->name('patient.status.completed');
+    Route::get('patient-status-skip/{doctor}/{date}/{chamber}/{patient_id}/{serial}', [DoctorController::class, 'statusSkip'])->name('patient.status.skip');
 
 });
 

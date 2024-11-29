@@ -257,6 +257,19 @@
     background: red;
     padding:3px
 }
+.custom_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.custom_flex p{
+    line-height: 10px;
+}
+.patients_count{
+    font-size:30px;
+}
+
 
 
 @media (min-width: 992px) {

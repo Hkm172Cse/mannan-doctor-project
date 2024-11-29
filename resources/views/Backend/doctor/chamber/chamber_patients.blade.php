@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Patients</h5>
-                        <a href="{{route('doctor.add.chamber')}}"><button class="btn btn-sm btn-primary">Add</button></a>
+                        <a href="{{route('doctor.start', ['doctor'=>$doctor_id, 'date'=>$date, 'chamber'=>$chamber_id])}}"><button class="btn btn-sm btn-primary">Start</button></a>
                     </div>
                     @if (session('success'))
                             <div class="alert alert-success">{{session('success')}}</div>
@@ -28,6 +28,8 @@
                             <th>Sl</th>
                             <th>Name</th>
                             <th>Phone</th>
+                            <th>Status</th>
+                            <th>Serial</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,6 +39,8 @@
                             <td>{{++$key}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->phone}}</td>
+                            <td>{{$data->status}}</td>
+                            <td>{{$data->serial_number}}</td>
                             <td>   
                             </td>
                             <td class="text-center">
@@ -54,11 +58,9 @@
                                                 <i class="ph-trash"></i>
                                             </button>
                                 </div>
-                               
                             </td>
                         </tr>
                         @endforeach
-                        
                     </tbody>
                 </table>
 

@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\Serial;
 use App\Models\Settings;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -379,6 +380,36 @@ class Helper
         ])->json();
 
         return $res;
+    }
+
+    public static function DayOfDate($dayNumber){
+        if ($dayNumber < 0 || $dayNumber > 6) {
+            return "Invalid day number! Must be between 0 (Sunday) and 6 (Saturday).";
+        }
+    
+        // Get today's date
+        $today = new DateTime();
+        $currentDayNumber = $today->format('w'); // Get today's day number (0 = Sunday, ..., 6 = Saturday)
+    
+        // Calculate the difference to get a future day in the same week
+        $dayDifference = $dayNumber - $currentDayNumber;
+    
+        // Ensure the target day is in the future
+        if ($dayDifference < 0) {
+            $dayDifference += 7; // Move to the same day in the next week
+        }
+    
+        // Get the target date
+        $targetDate = clone $today; // Clone the current date
+        $targetDate->modify("+$dayDifference days");
+    
+        // Format the date as DD-MM-YYYY
+        return $targetDate->format('d-m-Y');
+    }
+
+    public static function CountPatients($date, $doctor_id, $chamber_id){
+        $data = Serial::where('date',$date)->where('doctor_id', $doctor_id)->where('chember', $chamber_id)->count();
+        return $data;
     }
     
 }

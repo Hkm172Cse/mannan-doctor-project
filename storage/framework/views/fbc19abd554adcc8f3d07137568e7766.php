@@ -60,7 +60,7 @@
 																<?php echo e(in_array("5", $active_Days)? "শুক্র":""); ?>
 
 																</span>
-																(<span class="day-limit-text">সর্বোচ্চ ২ দিন আগ পর্যন্ত তারিখ নির্বাচন করতে পারবেন </span>)
+																(<span class="day-limit-text">সর্বোচ্চ ৫ দিন আগ পর্যন্ত তারিখ নির্বাচন করতে পারবেন </span>)
 															</label>
 															<select id="dateDropdown" class="form-control py-2" name="date">
 																<option value="">-- Select a Date --</option>
@@ -128,7 +128,7 @@
 	const allowedDays = <?php echo json_encode($activeDays, 15, 512) ?>;
 
     document.addEventListener("DOMContentLoaded", function () {
-	const maxDaysAhead = 2; 
+	const maxDaysAhead = 4; 
 	const dropdown = document.getElementById("dateDropdown");
 	const today = new Date();
 

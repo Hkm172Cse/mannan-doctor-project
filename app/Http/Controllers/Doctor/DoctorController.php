@@ -176,9 +176,71 @@ class DoctorController extends Controller
         dd($id);
     }
 
-    public function ChamberPatients($id){
+    public function ChamberPatients($chamberId){
         $doctor_id = Auth::guard('doctor')->user()->id;
-        $data = Serial::where('doctor_id',$doctor_id)->where('chember',$id)->get();
-        return view('Backend.doctor.chamber.chamber_patients', ['data'=>$data]);
+        $chamberInfo = Chember::where('id', $chamberId)->get();
+        $activeDays = $chamberInfo[0]->active_days;
+        $activeDays = json_decode($activeDays);
+        return view('Backend.doctor.chamber.chamber_days', ['days'=>$activeDays, 'doctor_id'=>$doctor_id, 'chamber_id'=>$chamberId]);
+        
+        // $data = Serial::where('doctor_id',$doctor_id)->where('chember',$id)->get();
+        // return view('Backend.doctor.chamber.chamber_patients', ['data'=>$data]);
+    }
+
+    public function ChamberDateWise($doctor, $date,$chamber){
+        $data = Serial::where('date',$date)->where('doctor_id', $doctor)->where('chember', $chamber)->orderBy('serial_number', 'asc')->get();
+        return view('Backend.doctor.chamber.chamber_patients', ['data'=>$data, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
+    }
+
+    public function StartToSeePatients($doctor, $date,$chamber){
+        //dd($chamber);
+        $getCurrectPatient = Serial::where('date',$date)
+        ->where('doctor_id', $doctor)
+        ->where('chember', $chamber)
+        ->where('status', 'pending')
+        ->orderBy('serial_number', 'asc')->first();
+        //dd($getCurrectPatient);
+        return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getCurrectPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
+
+    }
+
+    public function statusCompleted($doctor, $date, $chamber, $patient_id){
+        $updateStatus = Serial::where('id', $patient_id)->update(['status'=>"completed"]);
+
+        $getCurrectPatient = Serial::where('date',$date)
+        ->where('doctor_id', $doctor)
+        ->where('chember', $chamber)
+        ->where('status', 'pending')
+        ->orderBy('serial_number', 'asc')->first();
+        //dd($getCurrectPatient);
+        return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getCurrectPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
+
+    }
+
+    public function statusSkip($doctor, $date, $chamber, $patient_id, $serial){
+        //$updateStatus = Serial::where('id', $patient_id)->update(['status'=>"completed"]);
+        $skip_serail = $serial + 3;
+        $getLastPatient = Serial::where('date',$date)
+        ->where('doctor_id', $doctor)
+        ->where('chember', $chamber)
+        ->where('status', 'pending')
+        ->orderBy('serial_number', 'desc')->first();
+        $lastSerialNumber = $getLastPatient->serial_number;
+        if($skip_serail >= $lastSerialNumber);{
+            $skip_serail = $lastSerialNumber;
+        }
+
+        $serialSkiped = $this->serialSkipHandler($serial, $skip_serail);
+
+        //dd($getCurrectPatient);
+        return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getLastPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
+
+    }
+
+    public function serialSkipHandler($currentSerial, $skipSerial){
+        // while(){
+            
+        // }
+        return 1;
     }
 }
