@@ -188,18 +188,24 @@ class DoctorController extends Controller
     }
 
     public function ChamberDateWise($doctor, $date,$chamber){
-        $data = Serial::where('date',$date)->where('doctor_id', $doctor)->where('chember', $chamber)->orderBy('serial_number', 'asc')->get();
+        $data = Serial::where('date',$date)
+        ->where('doctor_id', $doctor)
+        ->where('chember', $chamber)
+        //->where('status', 'pending')
+        ->orderBy('serial_number', 'asc')->get();
         return view('Backend.doctor.chamber.chamber_patients', ['data'=>$data, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
     }
 
     public function StartToSeePatients($doctor, $date,$chamber){
-        //dd($chamber);
         $getCurrectPatient = Serial::where('date',$date)
         ->where('doctor_id', $doctor)
         ->where('chember', $chamber)
         ->where('status', 'pending')
         ->orderBy('serial_number', 'asc')->first();
         //dd($getCurrectPatient);
+        if($getCurrectPatient == null){
+            return redirect()->back()->with('completed', "All patients completed");
+        }
         return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getCurrectPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
 
     }
@@ -212,13 +218,15 @@ class DoctorController extends Controller
         ->where('chember', $chamber)
         ->where('status', 'pending')
         ->orderBy('serial_number', 'asc')->first();
-        //dd($getCurrectPatient);
+        if($getCurrectPatient == null){
+            return redirect()->route('admin.chembers.day.patients', ['doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber])->with('completed', "All patients completed");
+        }
         return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getCurrectPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
 
     }
 
     public function statusSkip($doctor, $date, $chamber, $patient_id, $serial){
-        //$updateStatus = Serial::where('id', $patient_id)->update(['status'=>"completed"]);
+        $serial = $serial + 0;
         $skip_serail = $serial + 3;
         $getLastPatient = Serial::where('date',$date)
         ->where('doctor_id', $doctor)
@@ -226,21 +234,38 @@ class DoctorController extends Controller
         ->where('status', 'pending')
         ->orderBy('serial_number', 'desc')->first();
         $lastSerialNumber = $getLastPatient->serial_number;
-        if($skip_serail >= $lastSerialNumber);{
+        if($skip_serail >= $lastSerialNumber){
             $skip_serail = $lastSerialNumber;
         }
-
-        $serialSkiped = $this->serialSkipHandler($serial, $skip_serail);
-
-        //dd($getCurrectPatient);
-        return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getLastPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
+        
+        $serialSkiped = $this->serialSkipHandler($serial, $skip_serail, $doctor, $date, $chamber, $patient_id);
+        if($serialSkiped == 1){
+            $getCurrectPatient = Serial::where('date',$date)
+            ->where('doctor_id', $doctor)
+            ->where('chember', $chamber)
+            ->where('status', 'pending')
+            ->orderBy('serial_number', 'asc')->first();
+            return view('Backend.doctor.chamber.current_patient', ['currentPatient'=>$getCurrectPatient, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
+        }
 
     }
 
-    public function serialSkipHandler($currentSerial, $skipSerial){
-        // while(){
-            
-        // }
+    public function serialSkipHandler($currentSerial, $skipSerial, $doctor, $date, $chamber, $patient_id){
+        if($currentSerial == $skipSerial){
+            return 0;
+        }
+       for($i = $currentSerial; $i< $skipSerial; $i++){
+        Serial::where('date',$date)
+        ->where('doctor_id', $doctor)
+        ->where('chember', $chamber)
+        ->where('status', 'pending')
+        ->where('serial_number', $i+1)
+        ->update(['serial_number'=>$i]);
+       }
+       $changing = Serial::where('id', $patient_id)->update(['serial_number'=>$skipSerial]);
+       if($changing){
         return 1;
+       }
+        
     }
 }

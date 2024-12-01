@@ -12,12 +12,16 @@
                         <h5 class="mb-0">Patients</h5>
                         <a href="<?php echo e(route('doctor.start', ['doctor'=>$doctor_id, 'date'=>$date, 'chamber'=>$chamber_id])); ?>"><button class="btn btn-sm btn-primary">Start</button></a>
                     </div>
-                    <?php if(session('success')): ?>
+                            <?php if(session('success')): ?>
                             <div class="alert alert-success"><?php echo e(session('success')); ?></div>
                             <?php endif; ?>
 
                             <?php if(session('fail')): ?>
                             <div class="alert alert-danger"><?php echo e(session('fail')); ?></div>
+                            <?php endif; ?>
+
+                            <?php if(session('completed')): ?>
+                            <div class="alert alert-success mt-3"><?php echo e(session('completed')); ?></div>
                             <?php endif; ?>
                 </div>
                 
@@ -29,36 +33,26 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Status</th>
-                            <th>Serial</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr> 
-                            <td><?php echo e(++$key); ?></td>
+                            <td><?php echo e($data->serial_number); ?></td>
                             <td><?php echo e($data->name); ?></td>
                             <td><?php echo e($data->phone); ?></td>
-                            <td><?php echo e($data->status); ?></td>
-                            <td><?php echo e($data->serial_number); ?></td>
+                            <td>
+                                <?php if($data->status == "completed"): ?>
+                                   <button style="border:none; padding:0 5px; background:green; border-radius: 10px; color:#fff; font-size:10px"><?php echo e($data->status); ?></button> 
+                                <?php else: ?>
+                                    <button style="border:none; padding:0 5px; background:red; border-radius: 10px; color:#fff; font-size:10px"><?php echo e($data->status); ?></button> 
+                                <?php endif; ?>
+                                
+                            </td>
+                            
                             <td>   
                             </td>
-                            <td class="text-center">
-                                <div class="d-flex align-items-center gap-1">
-                                    <button class="customEditBtn">
-                                    <a href="<?php echo e(route('doctor.chamber.edit', $data->id)); ?>" class="dropdown-item text-primary">
-                                                <i class="ph-pen"></i>
-                                            </a>
-                                    </button>
-                                    <button type="button" 
-                                                data-url="/admin/store/delete/<?php echo e($data->id); ?>" 
-                                                data-header="<?php echo e($data->id); ?>"
-                                                data-body="<?php echo e($data->id); ?>"
-                                            class="customDeleteBtn delete_modal ">
-                                                <i class="ph-trash"></i>
-                                            </button>
-                                </div>
-                            </td>
+                           
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>

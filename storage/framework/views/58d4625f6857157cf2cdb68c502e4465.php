@@ -14,7 +14,7 @@
           <p>সিরিয়াল নাম্বার: <?php echo e($currentPatient->serial_number); ?></p>
         
         <div class="d-flex justify-content-center gap-2">
-            <a href="<?php echo e(route('doctor.patient.status.completed', ['doctor'=>$doctor_id, 'date'=>$date, 'chamber'=>$chamber_id, 'patient_id'=>$currentPatient->id])); ?>">
+            <a href="<?php echo e(route('doctor.patient.status.skip', ['doctor'=>$doctor_id, 'date'=>$date, 'chamber'=>$chamber_id, 'patient_id'=>$currentPatient->id, 'serial'=>$currentPatient->serial_number])); ?>">
                 <button class="btn btn-danger btn-sm">Skip</button>
             </a>
             <a href="<?php echo e(route('doctor.patient.status.completed', ['doctor'=>$doctor_id, 'date'=>$date, 'chamber'=>$chamber_id, 'patient_id'=>$currentPatient->id])); ?>">

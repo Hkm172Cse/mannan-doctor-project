@@ -12,12 +12,16 @@
                         <h5 class="mb-0">Patients</h5>
                         <a href="{{route('doctor.start', ['doctor'=>$doctor_id, 'date'=>$date, 'chamber'=>$chamber_id])}}"><button class="btn btn-sm btn-primary">Start</button></a>
                     </div>
-                    @if (session('success'))
+                            @if (session('success'))
                             <div class="alert alert-success">{{session('success')}}</div>
                             @endif
 
                             @if (session('fail'))
                             <div class="alert alert-danger">{{session('fail')}}</div>
+                            @endif
+
+                            @if (session('completed'))
+                            <div class="alert alert-success mt-3">{{session('completed')}}</div>
                             @endif
                 </div>
                 
@@ -29,36 +33,26 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Status</th>
-                            <th>Serial</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $key=>$data)
                         <tr> 
-                            <td>{{++$key}}</td>
+                            <td>{{$data->serial_number}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->phone}}</td>
-                            <td>{{$data->status}}</td>
-                            <td>{{$data->serial_number}}</td>
+                            <td>
+                                @if ($data->status == "completed")
+                                   <button style="border:none; padding:0 5px; background:green; border-radius: 10px; color:#fff; font-size:10px">{{$data->status}}</button> 
+                                @else
+                                    <button style="border:none; padding:0 5px; background:red; border-radius: 10px; color:#fff; font-size:10px">{{$data->status}}</button> 
+                                @endif
+                                
+                            </td>
+                            
                             <td>   
                             </td>
-                            <td class="text-center">
-                                <div class="d-flex align-items-center gap-1">
-                                    <button class="customEditBtn">
-                                    <a href="{{route('doctor.chamber.edit', $data->id)}}" class="dropdown-item text-primary">
-                                                <i class="ph-pen"></i>
-                                            </a>
-                                    </button>
-                                    <button type="button" 
-                                                data-url="/admin/store/delete/{{$data->id}}" 
-                                                data-header="{{$data->id}}"
-                                                data-body="{{$data->id}}"
-                                            class="customDeleteBtn delete_modal ">
-                                                <i class="ph-trash"></i>
-                                            </button>
-                                </div>
-                            </td>
+                           
                         </tr>
                         @endforeach
                     </tbody>
