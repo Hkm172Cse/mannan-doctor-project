@@ -108,14 +108,12 @@ class DoctorController extends Controller
 
     public function SerialList(){
         $id = Auth::guard('doctor')->user()->id;
-      
         $data = DB::table('serials')
         ->leftJoin('chembers', 'serials.chember', '=', 'chembers.id')
-        ->select('chember', 'chembers.name', DB::raw('COUNT(*) as total_patients'))
+        ->select('chember', 'chembers.name')
         ->groupBy('serials.chember', 'chembers.name')
         ->where('serials.doctor_id', $id)
         ->get();
-        //dd($data);
         return view('Backend.doctor.serials', ['data'=>$data]);
     }  
 
@@ -191,7 +189,7 @@ class DoctorController extends Controller
         $data = Serial::where('date',$date)
         ->where('doctor_id', $doctor)
         ->where('chember', $chamber)
-        //->where('status', 'pending')
+        ->where('status', 'pending')
         ->orderBy('serial_number', 'asc')->get();
         return view('Backend.doctor.chamber.chamber_patients', ['data'=>$data, 'doctor_id'=>$doctor, 'date'=>$date,'chamber_id'=>$chamber]);
     }
@@ -226,7 +224,7 @@ class DoctorController extends Controller
     }
 
     public function statusSkip($doctor, $date, $chamber, $patient_id, $serial){
-        $serial = $serial + 0;
+
         $skip_serail = $serial + 3;
         $getLastPatient = Serial::where('date',$date)
         ->where('doctor_id', $doctor)
@@ -234,6 +232,7 @@ class DoctorController extends Controller
         ->where('status', 'pending')
         ->orderBy('serial_number', 'desc')->first();
         $lastSerialNumber = $getLastPatient->serial_number;
+        //$skip_count =
         if($skip_serail >= $lastSerialNumber){
             $skip_serail = $lastSerialNumber;
         }
@@ -254,6 +253,12 @@ class DoctorController extends Controller
         if($currentSerial == $skipSerial){
             return 0;
         }
+        $skip_count = Serial::where('id',$patient_id)->first();
+        $skip_count = $skip_count->skip_count;
+        if($skip_count>0){
+            $skipSerial = $skipSerial * ($skip_count + 1);
+        }
+        
        for($i = $currentSerial; $i< $skipSerial; $i++){
         Serial::where('date',$date)
         ->where('doctor_id', $doctor)
@@ -262,10 +267,16 @@ class DoctorController extends Controller
         ->where('serial_number', $i+1)
         ->update(['serial_number'=>$i]);
        }
-       $changing = Serial::where('id', $patient_id)->update(['serial_number'=>$skipSerial]);
+       $changing = Serial::where('id', $patient_id)->update(['serial_number'=>$skipSerial, 'skip_count'=>$skip_count + 1]);
        if($changing){
         return 1;
        }
         
+    }
+
+    public function OldPatients(){
+        $doctor_id = Auth::guard('doctor')->user()->id;
+        $data = Serial::where('doctor_id',$doctor_id)->where('status', 'completed')->get();
+        return view('Backend.doctor.chamber.old_patients', ['data'=>$data]);
     }
 }

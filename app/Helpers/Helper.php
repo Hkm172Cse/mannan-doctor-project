@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\Chember;
 use App\Models\Serial;
 use App\Models\Settings;
 use Illuminate\Support\Facades\File;
@@ -408,8 +409,21 @@ class Helper
     }
 
     public static function CountPatients($date, $doctor_id, $chamber_id){
-        $data = Serial::where('date',$date)->where('doctor_id', $doctor_id)->where('chember', $chamber_id)->count();
+        $data = Serial::where('date',$date)->where('doctor_id', $doctor_id)->where('chember', $chamber_id)->where('status', 'pending')->count();
         return $data;
     }
-    
+
+    public static function ChamberWisePatientCount($chamber){
+
+        $sum = 0;
+        $doctor_id = Auth::guard('doctor')->user()->id;
+        $data = Chember::where('id',$chamber)->first();
+        $active_days = json_decode($data->active_days);
+        foreach($active_days as $day){
+            $date = self::DayOfDate($day);
+            $patientsCouter = Serial::where('doctor_id',$doctor_id)->where('chember',$chamber)->where('date',$date)->where('status','pending')->count();
+            $sum += $patientsCouter;
+        }
+        return $sum;
+    }
 }

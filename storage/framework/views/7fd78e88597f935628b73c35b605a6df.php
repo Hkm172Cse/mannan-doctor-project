@@ -38,6 +38,14 @@
                     <span>সিরিয়াল লিস্ট</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="<?php echo e(route('doctor.old.patients')); ?>" class="nav-link">
+                    <i class="ph-users"></i>
+                    <span>Old Patients</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a href="<?php echo e(route('doctor.chamber.list')); ?>" class="nav-link">
                     <i class="ph-users"></i>

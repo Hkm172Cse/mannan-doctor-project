@@ -77,6 +77,7 @@ Route::group(['prefix' => 'doctor', 'as' => 'doctor.', 'middleware' => ['web', '
     Route::get('doctor-start/{doctor}/{date}/{chamber}', [DoctorController::class, 'StartToSeePatients'])->name('start');
     Route::get('patient-status-completed/{doctor}/{date}/{chamber}/{patient_id}', [DoctorController::class, 'statusCompleted'])->name('patient.status.completed');
     Route::get('patient-status-skip/{doctor}/{date}/{chamber}/{patient_id}/{serial}', [DoctorController::class, 'statusSkip'])->name('patient.status.skip');
+    Route::get('old/patents', [DoctorController::class, 'OldPatients'])->name('old.patients');
 
 });
 

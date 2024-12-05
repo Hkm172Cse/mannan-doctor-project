@@ -6,7 +6,9 @@
 <?php $__env->startSection('content'); ?>
 <div class="row">
     <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    
+    <?php
+    $totalPatients = \App\Helpers\Helper::ChamberWisePatientCount($data->chember)
+    ?> 
    
     <div class="col-xl-4">
     <!-- Start Quotation Section -->
@@ -18,7 +20,7 @@
                 <div class="col-sm-12">
                     <div class="d-flex align-items-center justify-content-between mb-2">
                         <span class="bg-success bg-opacity-10 text-success lh-1 rounded-pill p-2 me-3">
-                            <?php echo e($data->total_patients); ?>
+                         <?php echo e($totalPatients); ?>
 
                         </span>
                         <div>
